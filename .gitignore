@@ -2,3 +2,4 @@
 *.log
 *.pt
 *.image
+__pycache__
