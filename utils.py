@@ -1,8 +1,38 @@
-"""Model Options to Test candidates
+"""utitlities
 """
 from collections import OrderedDict
 import numpy as np
 from pprint import pprint
+
+
+def sample_candidate(candidates):
+    """pick a candidate from search options
+    Arguments:
+        candidates {[type]} -- [description]
+    Returns:
+        [type] -- [description]
+    """
+    choice_candidates = []
+    for candidate in candidates:
+        # c = np.random.choice(candidate)
+        # choice_candidates.append(c)
+        if type(candidate) == int:
+            c = candidate
+        else:
+            c = np.random.choice(candidate)
+        choice_candidates.append(c)
+    return choice_candidates
+def cadidates_to_options(net_n_candidates_dict):
+    # print(net_n_candidates_dict)
+    model_options = [k[1][0] for k in net_n_candidates_dict.items()]
+    model_options = [
+        model_options[0][0],
+        model_options[0][1],
+        model_options[1:8],
+        model_options[8],
+        model_options[9],
+    ]
+    return model_options
 
 def options_to_candidates(model_options):
     # block 1
